@@ -11,7 +11,11 @@ async function sendMessage(chatId, message) {
         });
         console.log('Message sent:', response.data);
     } catch (error) {
-        console.error('Meletup wak xD:', error.response.data);
+        if (error.response && error.response.data) {
+            console.error('Meletup wak xD:', error.response.data);
+        } else {
+            console.error('Error occurred:', error.message);
+        }
     }
 }
 
@@ -30,8 +34,8 @@ process.on('SIGINT', () => {
 });
 
 // Konfigurasi
-const botId = '7128903623:AAEQRmY_pEgOyV8oe61hnnqdn0W3fkCE0hw';
-const chatId = '715096411';
-const message = 'Woy penipu!!';
+const botId = '6714358005:AAGYNnnE49QJ5x1JDaYmNUQn64PRTLTPk3o';
+const chatId = '7482635963';
+const message = 'Woy penipu!! kontol';
 const interval = 20;
 sendRepeatedMessages(chatId, message, interval);
